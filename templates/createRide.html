@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Create Ride - CarPooling{% endblock %}
+{% block content %}
+<h2>Create a Ride</h2>
+<form>
+    <div class="mb-3">
+        <label for="origin" class="form-label">Origin</label>
+        <input type="text" class="form-control" id="origin" name="origin">
+    </div>
+    <div class="mb-3">
+        <label for="destination" class="form-label">Destination</label>
+        <input type="text" class="form-control" id="destination" name="destination">
+    </div>
+    <div class="mb-3">
+        <label for="departure_time" class="form-label">Departure Time</label>
+        <input type="datetime-local" class="form-control" id="departure_time" name="departure_time">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
