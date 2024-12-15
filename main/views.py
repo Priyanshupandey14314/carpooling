@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .models import Ride
 
 # Home page
-def index(request):
+def home(request):
     return render(request, 'index.html')
 
 # Create Ride page
