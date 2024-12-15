@@ -29,6 +29,7 @@ ALLOWED_HOSTS = ['carpooling-3hiz.onrender.com']
 
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
