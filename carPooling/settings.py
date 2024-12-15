@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)ef(n_2yk%&250)l6y!oi93e8&)-0m#jo&l_v8e)gv+_-+nzn%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://carpooling-3fhm.onrender.com/']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',
+    'https://carpooling-3fhm.onrender.com/']
 
 
 
