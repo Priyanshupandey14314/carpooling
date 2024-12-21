@@ -31,3 +31,5 @@ def create_ride(request):
 def view_rides(request):
     rides = Ride.objects.all()
     return render(request, 'viewRide.html', {'rides': rides})
+def tailwind_test(request):
+    return render(request, 'testTailwind.html')

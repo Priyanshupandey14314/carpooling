@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.home, name='home'),  # Home page
     path('createRides/', views.create_ride, name='createRide'),  # Page to create a ride
     path('viewRides/', views.view_rides, name='viewRide'),  # Page to view available rides
+    path('tailwind_test/', views.tailwind_test, name='tailwind_test'),
 ]
