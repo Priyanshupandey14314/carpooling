@@ -1,165 +1,98 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarPooling - Find Rides, Offer Rides</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CarPooling - BlaBlaCar Inspired</title>
+    <link href="{% static '/css/tailwind-output.css' %}" rel="stylesheet">
+    
+    <!-- Link to Tailwind CSS -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        /* Header Styles */
-        header {
-            background-color: #0056b3;
-            color: white;
-            padding: 15px 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-            background-color: #003366;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 500;
-        }
-        nav a:hover {
-            color: #28a745;
-        }
-        /* Main Search Section */
-        .search-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* Custom Styles (Optional) */
+        .hero-banner {
+            background-image: url('{% static "img/image.png" %}');
+            background-size: cover;
+            background-position: center;
             height: 60vh;
-            background-color: #ffffff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .search-box {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 80%;
-            max-width: 600px;
-        }
-        .search-box input {
-            padding: 12px;
-            margin: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 100%;
-        }
-        .search-box button {
-            padding: 12px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-        .search-box button:hover {
-            background-color: #218838;
-        }
-        /* Features Section */
-        .features {
-            display: flex;
-            justify-content: space-around;
-            padding: 50px 0;
-            background-color: #f0f0f0;
-        }
-        .feature {
-            text-align: center;
-            width: 200px;
-        }
-        .feature img {
-            max-width: 100px;
-            margin-bottom: 20px;
-        }
-        .feature h3 {
-            margin: 0 0 10px;
-            font-size: 1.4rem;
-        }
-        .feature p {
-            font-size: 0.9rem;
-            color: #555;
-        }
-        /* Footer Section */
-        footer {
-            background-color: #003366;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <h1>Welcome to CarPooling</h1>
-        <p>Save money, reduce traffic, and help the environment by carpooling with us!</p>
-    </header>
+
+<body class="bg-gray-100">
 
     <!-- Navigation Bar -->
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About Us</a>
-        <a href="/contact">Contact</a>
-        <a href="/login">Login</a>
-        <a href="/signup">Sign Up</a>
+    <nav class="bg-blue-600 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-white text-2xl font-bold">CarPooling</a>
+            <div class="space-x-6">
+                <a href="/about" class="text-white">About</a>
+                <a href="/rides" class="text-white">Find a Ride</a>
+                <a href="/login" class="text-white">Login</a>
+                <a href="/signup" class="text-white">Sign Up</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- Main Search Section -->
-    <div class="search-container">
-        <div class="search-box">
-            <h2>Find a Ride</h2>
-            <p>Enter your departure and destination locations to find a carpool.</p>
-            <form action="/search" method="GET">
-                <input type="text" name="from" placeholder="From (City)" required>
-                <input type="text" name="to" placeholder="To (City)" required>
-                <input type="date" name="date" required>
-                <button type="submit">Search for Rides</button>
-            </form>
+    <!-- Hero Section -->
+    <section class="hero-banner flex items-center justify-center bg-cover bg-center relative">
+        <div class="bg-black opacity-50 absolute inset-0"></div>
+        <div class="relative z-10 text-center text-white">
+            <h1 class="text-5xl font-extrabold leading-tight mb-4">Find a Ride. Share a Journey.</h1>
+            <p class="text-lg mb-6">Join a community of drivers and passengers to share rides and reduce costs.</p>
+            <a href="/signup" class="bg-green-500 px-6 py-2 rounded-full text-xl text-white hover:bg-green-600 transition duration-300">Start Your Journey</a>
         </div>
-    </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="py-16 bg-gray-200">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold mb-8">Find a Ride</h2>
+            <div class="flex justify-center">
+                <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-3xl">
+                    <form action="/search" method="GET" class="flex space-x-4">
+                        <input type="text" name="from" placeholder="From" class="px-4 py-2 w-1/3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <input type="text" name="to" placeholder="To" class="px-4 py-2 w-1/3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <input type="date" name="date" class="px-4 py-2 w-1/3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button type="submit" class="bg-blue-600 px-6 py-2 rounded-lg text-white hover:bg-blue-700 transition duration-300">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Features Section -->
-    <div class="features">
-        <div class="feature">
-            <img src="https://image.shutterstock.com/image-vector/carpooling-icon-symbol-vector-illustration-260nw-1296424342.jpg" alt="Icon 1">
-            <h3>Affordable</h3>
-            <p>Save on travel costs by sharing rides with others.</p>
+    <section class="py-16 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold mb-8">Why CarPooling?</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-xl">
+                    <h3 class="text-xl font-semibold mb-4">Save Money</h3>
+                    <p class="text-gray-600">By sharing rides, you can cut down travel expenses significantly.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-xl">
+                    <h3 class="text-xl font-semibold mb-4">Eco-Friendly</h3>
+                    <p class="text-gray-600">Reduce your carbon footprint and help the environment by sharing rides.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-xl">
+                    <h3 class="text-xl font-semibold mb-4">Meet New People</h3>
+                    <p class="text-gray-600">Carpooling is a great way to connect with new people while traveling.</p>
+                </div>
+            </div>
         </div>
-        <div class="feature">
-            <img src="https://image.shutterstock.com/image-vector/green-earth-globe-leaf-eco-260nw-1061035664.jpg" alt="Icon 2">
-            <h3>Eco-Friendly</h3>
-            <p>Help reduce your carbon footprint by carpooling.</p>
-        </div>
-        <div class="feature">
-            <img src="https://image.shutterstock.com/image-vector/speedometer-icon-isolated-on-white-260nw-1124966555.jpg" alt="Icon 3">
-            <h3>Convenient</h3>
-            <p>Find rides in real-time and book easily online.</p>
-        </div>
-    </div>
+    </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 CarPooling | All Rights Reserved</p>
-        <p>Follow us on <a href="#" style="color: #28a745;">Facebook</a> and <a href="#" style="color: #28a745;">Twitter</a></p>
+    <footer class="bg-blue-600 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 CarPooling. All rights reserved.</p>
+        </div>
     </footer>
+
 </body>
+
 </html>
