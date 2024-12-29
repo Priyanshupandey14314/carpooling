@@ -105,18 +105,10 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
-# carPooling/settings.py
+# static files 
 STATIC_URL = '/static/'
-
-# For additional static files during development
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  # This is where your Tailwind-generated files are located
+    BASE_DIR / "static",  # Points to your single static folder
 ]
-
-# For production: where 'collectstatic' will gather all static files
-STATIC_ROOT = BASE_DIR / "staticfiles_root"
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
