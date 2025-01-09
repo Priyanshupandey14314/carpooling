@@ -1,35 +1,24 @@
 # main/views.py
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Ride
+from .forms import RideForm
 
 # Home page
 def home(request):
     return render(request, 'index.html')
 
 # Create Ride page
-def create_ride(request):
+def post_ride(request):
     if request.method == 'POST':
         # Handle the form submission and save ride
-        origin = request.POST['origin']
-        destination = request.POST['destination']
-        departure_time = request.POST['departure_time']
-        available_seats = request.POST['available_seats']
-        price_per_seat = request.POST['price_per_seat']
-        description = request.POST['description']
-        Ride.objects.create(
-            driver=request.user,  # assuming user is logged in
-            origin=origin,
-            destination=destination,
-            departure_time=departure_time,
-            available_seats=available_seats,
-            price_per_seat=price_per_seat,
-            description=description
-        )
-    return render(request, 'createRide.html')
-
-# View Rides page
+        form = RideForm(request.POST)
+        if form.is_valid():
+            ride = form.save(commit=False)
+            ride.created_by = request.user
+            ride.save()
+            return redirect('view_rides')
+    else:
+        form = RideForm()
+    return render(request,'createRide.html',{'form': form})
 def view_rides(request):
-    rides = Ride.objects.all()
-    return render(request, 'viewRide.html', {'rides': rides})
-def tailwind_test(request):
-    return render(request, 'testTailwind.html')
+    return render(request,'viewRide.html')
