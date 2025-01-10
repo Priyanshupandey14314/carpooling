@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet');
 *{
   margin:0;
   padding: 0;
   box-sizing: border-box;
+  font-family:'Poppins',serif !important;
 }
 /* Navbar Designing */
 .logo{
@@ -51,6 +53,16 @@
     position: relative;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
   }
+  .searchHero
+  {
+    background: url('./img/banner3.jpeg') !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .overlay {
     position: absolute;
@@ -74,7 +86,7 @@
   }
 
   .search-bar {
-    max-width:70%;
+    max-width:80%;
     margin: 0 auto;
     justify-content: space-between !important;
     z-index: 2;
@@ -102,7 +114,7 @@
     font-weight: 700;
     color: whitesmoke;
     margin-left: 10px;
-    width:500px;
+    width:550px;
     box-shadow: 0px 0px 8px 3px rgba(255,255,255,0.3);
     font-size: 15px;
     font-weight: bold;
@@ -149,8 +161,8 @@
 
 /* Card Styling */
 .card {
-  border: 1px inset rgba(255,150,152,0.5);
-  box-shadow: 0 4px 10px 5px rgba(0, 0, 220, 0.2);
+  /* border: 1px ridge rgba(168, 48, 48, 0.5); */
+  /* box-shadow: 0 4px 10px 5px rgba(0, 0, 220, 0.2); */
   max-width:400px;
   max-height:380px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -213,57 +225,25 @@
   border-radius: 50%;
 }
 /* Footer Section */
-  /* Footer Styling */
-  .footer {
-    background-color: #343a40;
-    color: #fff;
-    padding: 40px 20px;
-  }
-
-  .footer .logo img {
-    max-width: 120px;
-  }
-
-  .footer h5 {
-    color: #007bff;
-    margin-bottom: 20px;
-  }
-
-  .footer ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .footer ul li {
-    margin-bottom: 10px;
-  }
-
-  .footer ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-
-  .footer ul li a:hover {
-    text-decoration: underline;
-  }
-
-  .social-links a {
-    color: #007bff;
-    font-size: 1.5rem;
-    margin-right: 15px;
-    transition: color 0.3s;
-  }
-
-  .social-links a:hover {
-    color: #fff;
-  }
-
-  .copyright {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 0.9rem;
-    color: #aaa;
-  }
+.footer{
+  background-color:rgba(5, 6, 9, 0.93);
+}
+.footer a{
+  text-decoration: none;
+  font-size: 18px; 
+}
+.footer i{
+  font-size: 25px !important;
+}
+.footer p{
+  margin-bottom: 5px !important;
+}
+.text{
+  font-size:21px;
+}
+.footer .contact{
+  font-size:18px;
+}
 
    /* FAQ Section Styles */
    .faq-heading {
@@ -331,4 +311,152 @@
   padding: 50px;
   /* background-color: rgba(); */
 }
-/* Cards */
+
+
+/* ViewRides Page */
+.ag-format-container {
+  width: 100vw;
+  margin: 0 auto;
+}
+.ag-courses_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  padding: 50px 0;
+}
+.ag-courses_item {
+  -ms-flex-preferred-size: calc(33.33333% - 30px);
+  flex-basis: calc(33.33333% - 30px);
+  margin: 0 15px 30px;
+  overflow: hidden;
+
+  border-radius: 28px;
+}
+.ag-courses-item_link {
+  display: block;
+  padding: 30px 20px;
+  background-color: #121212;
+
+  overflow: hidden;
+
+  position: relative;
+}
+.ag-courses-item_link:hover,
+.ag-courses-item_link:hover .ag-courses-item_date {
+  text-decoration: none;
+  color: #FFF;
+}
+.ag-courses-item_link:hover .ag-courses-item_bg {
+  -webkit-transform: scale(10);
+  -ms-transform: scale(10);
+  transform: scale(10);
+}
+.ag-courses-item_title {
+  max-height: 50px;
+  margin: 0 0 10px;
+  overflow: hidden;
+  font-size: 22px;
+  color: #FFF;
+
+  z-index: 2;
+  position: relative;
+}
+.ag-courses-item_date-box {
+  font-size: 18px;
+  color: #FFF;
+  z-index: 2;
+  position: relative;
+}
+.ag-courses-item_date {
+  font-weight: bold;
+  color: #f9b234;
+
+  -webkit-transition: color .5s ease;
+  -o-transition: color .5s ease;
+  transition: color .5s ease
+}
+.ag-courses-item_bg {
+  height: 128px;
+  width: 128px;
+  background-color: #f9b234;
+
+  z-index: 1;
+  position: absolute;
+  top: -75px;
+  right: -75px;
+
+  border-radius: 50%;
+
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+}
+.ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+  background-color: #3ecd5e;
+}
+.ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+  background-color: #e44002;
+}
+.ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+  background-color: #952aff;
+}
+.ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+  background-color: #cd3e94;
+}
+.ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+  background-color: #4c49ea;
+}
+
+
+
+@media only screen and (max-width: 979px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: calc(50% - 30px);
+    flex-basis: calc(50% - 30px);
+  }
+  .ag-courses-item_title {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .ag-format-container {
+    width: 96%;
+  }
+
+}
+@media only screen and (max-width: 639px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  .ag-courses-item_title {
+    min-height: 72px;
+    line-height: 1;
+
+    font-size: 24px;
+  }
+  .ag-courses-item_link {
+    padding: 22px 40px;
+  }
+  .ag-courses-item_date-box {
+    font-size: 16px;
+  }
+}
+/* Contact US  */
+.form-box {
+  max-width: 500px;
+  margin: auto;
+  padding: 50px;
+  background: #ffffff;
+  border: 10px solid #f2f2f2;
+}
+input, textarea {
+  width: 100%;
+}

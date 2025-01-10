@@ -22,3 +22,5 @@ def post_ride(request):
     return render(request,'createRide.html',{'form': form})
 def view_rides(request):
     return render(request,'viewRide.html')
+def contact_us(request):
+    return render(request,'contact.html')
