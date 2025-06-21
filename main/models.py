@@ -14,6 +14,9 @@ class Ride(models.Model):
     description = models.TextField(blank=True,null=True)
     created_by = models.ForeignKey('auth.user',on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    driver_name = models.CharField(max_length=15, null=True, blank=True)
+    driver_phone = models.CharField(max_length=15, null=True, blank=True)
+
     def __str__(self):
         return f"{self.source} to {self.destination} ({self.date})"
 

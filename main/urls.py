@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),  # Home page
-    path('createRides/', views.post_ride, name='createRide'),  # Page to create a ride
-    path('viewRides/', views.view_rides, name='viewRide'),  # Page to view available rides
-    path('contact/',views.contact_us,name='contact')
+    path('contact/',views.contact_us,name='contact'),
+    path('offer_ride/', views.offer_ride, name='offer_ride'),
+    path('find_ride/', views.find_ride, name='find_ride')
 ]

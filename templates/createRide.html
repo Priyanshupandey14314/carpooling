@@ -5,44 +5,58 @@
 {% endblock title %}
 {% block main %}
 <div class="form-container">
+    {% load widget_tweaks%}
     <form method="post">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="source" class="form-label">Source</label>
-                {{ form.source }}
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="destination" class="form-label">Destination</label>
-                {{ form.destination }}
-            </div>
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="{{ form.source.id_for_label }}" class="form-label">Source</label>
+            {{ form.source}}
         </div>
-        <div class="row">
-            <div class="col-md-3 mb-3">
-                <label for="date" class="form-label">Date</label>
-                {{ form.date }}
-            </div>
-            <div class="col-md-3 mb-3">
-                <label for="seats_available" class="form-label">Seats Available</label>
-                {{ form.available_seats }}
-            </div>
-            <div class="col-md-3 mb-3">
-                <label for="price_per_seat" class="form-label">Price per Seat (₹)</label>
-                {{ form.price_per_seat }}
-            </div>
-            <div class="col-md-3 mb-3">
-                <label for="price_per_seat" class="form-label">Gender Preference</label>
-                {% comment %} {{ form.price_per_seat }} {% endcomment %}
-                <input type="options"class="form-control" name="" id="">
-            </div>
+        <div class="col-md-6 mb-3">
+            <label for="{{ form.destination.id_for_label }}" class="form-label">Destination</label>
+            {{ form.destination|add_class:"form-control" }}
         </div>
-        <div class="mb-3">
-            <label for="notes" class="form-label">Additional Notes</label>
-            {{ form.description }}
+    </div>
+    
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <label for="{{ form.date.id_for_label }}" class="form-label">Date</label>
+            {{ form.date|add_class:"form-control" }}
         </div>
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary w-100">Publish Ride</button>
+        <div class="col-md-3 mb-3">
+            <label for="{{ form.available_seats.id_for_label }}" class="form-label">Seats Available</label>
+            {{ form.available_seats|add_class:"form-control" }}
         </div>
-    </form>    
+        <div class="col-md-3 mb-3">
+            <label for="{{ form.price_per_seat.id_for_label }}" class="form-label">Price per Seat (₹)</label>
+            {{ form.price_per_seat|add_class:"form-control" }}
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="{{ form.gender.id_for_label }}" class="form-label">Gender Preference</label>
+            {{ form.gender|add_class:"form-select" }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="{{ form.driver_name.id_for_label }}" class="form-label">Driver Name</label>
+            {{ form.driver_name|add_class:"form-control" }}
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="{{ form.driver_phone.id_for_label }}" class="form-label">Driver Phone</label>
+            {{ form.driver_phone|add_class:"form-control" }}
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="{{ form.description.id_for_label }}" class="form-label">Additional Notes</label>
+        {{ form.description|add_class:"form-control" }}
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary w-100">Publish Ride</button>
+    </div>
+</form>
+  
 </div>
 {% endblock main %}
