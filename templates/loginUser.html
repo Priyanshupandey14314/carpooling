@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{%load static%}
+{%block title%}
+<title>User Login</title>
+{% endblock %}
+{%block main%}
+<div class="formcontainer">
+    <form action="#">
+        <div class="grid">
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="name">Enter Full Name</label>
+                <div/>
+                <div class="col-md-6">
+                    <input type="text" id="name" name="name" class="form-control" palceholder="Enter full Name"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

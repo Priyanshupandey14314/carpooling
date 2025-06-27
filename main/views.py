@@ -86,3 +86,5 @@ def find_ride(request):
      return render(request, 'viewRide.html', context)
 def contact_us(request):
     return render(request,'contact.html')
+def user_login(request):
+    return render(request,'loginUser.html')
