@@ -22,132 +22,30 @@
       </div>
 </div>
 <!-- End of .container -->
+
 <div class="ag-format-container">
-    <div class="ag-courses_box">
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-           <p>Delhi to Agra</p>
-          </div>
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              04.11.2025
-            </span>
-          </div>
-        </a>
-      </div>
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Ballia to Varanasi
-          </div>
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              15.02.2025
-            </span>
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-           Ghaziabad to Hathras
-          </div>
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              04.03.2025
-            </span>
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Bombay to Punjab
-          </div>
-  
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              15.01.2025
-            </span>
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-          <div class="ag-courses-item_title">
-            Noida to Gorakhpur
-          </div>
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              20.02.2025
-            </span>
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Delhi to Ujjain
-          </div>
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              20.02.2025
-            </span>
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg">
-          </div>
-          <div class="ag-courses-item_title">
-            15.02.2025
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Ballia to Kushinagar
-          </div>
-  
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              11.02.2025
-            </span>
-          </div>
-        </a>
-      </div>
-  
+  <div class="ag-courses_box">
+    {% for ride in rides %}
+    <div class="ag-courses_item">
+      <a href="#" class="ag-courses-item_link">
+        <div class="ag-courses-item_bg"></div>
+        <div class="ag-courses-item_title">
+          <p>{{ ride.source }} ➜ {{ ride.destination }}</p>
+        </div>
+        <div class="ag-courses-item_date-box">
+          Start:
+          <span class="ag-courses-item_date">
+            {{ ride.date }}
+          </span>
+        </div>
+      </a>
     </div>
+    {% empty %}
+    <p>No rides available.</p>
+    {% endfor %}
   </div>
+</div>
+
 </body>
 
 {% endblock main %}

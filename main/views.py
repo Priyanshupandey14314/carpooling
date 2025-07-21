@@ -51,7 +51,7 @@ def home(request):
     return render(request, 'createRide.html')'''
 # Create ride with moedlForms
 def offer_ride(request):
-    test_user = User.objects.get(username="Priyanshu")
+    test_user = User.objects.get(username="testuser")
     if request.method == 'POST':
         form = RideForm(request.POST)
         if form.is_valid():
@@ -65,25 +65,13 @@ def offer_ride(request):
     return render(request, 'createRide.html', {'form': form})
 
 # find ride handling 
-@require_GET
+# @require_GET
 def find_ride(request):
-     source = request.GET.get('source')
-     destination= request.GET.get('destination')
-     date = request.GET.get('date')
+    #  source = request.GET.get('source')
+    #  destination= request.GET.get('destination')
+    #  date = request.GET.get('date')
      rides = Ride.objects.all()
-     if source:
-         rides = rides.filter(source=source)
-     if destination:
-         rides = rides.filter(destination=destination)
-     if date:
-         rides = rides.filter(date=date)
-     context = {
-         'rides': rides,
-         'source': source or '',
-         'destination': destination or '',
-         'date': date or ''
-     }
-     return render(request, 'viewRide.html', context)
+     return render(request, 'viewRide.html', {'rides': rides})
 def contact_us(request):
     return render(request,'contact.html')
 def user_login(request):
